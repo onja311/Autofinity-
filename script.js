@@ -6,7 +6,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         document.getElementById("dashboard").style.display = "block";
         document.querySelector(".login-container").style.display = "none";
     } else {
-        alert("Ampidiro anarana marina!");
+        alert("Veuillez entrer un nom d'utilisateur valide !");
     }
 });
 
