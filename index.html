@@ -3,10 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion AutoFinity</title>
-    <link rel="stylesheet" href="style.css">
+    <title>AutoFinity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffffff; /* Background fotsy */
+        }
+        .logo {
+            font-size: 40px;
+            font-weight: bold;
+            color: #ff0000; /* Mena */
+        }
+        .auto {
+            color: #000000; /* Mainty */
+        }
+        .login-container {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            background: #fff;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        input, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 5px;
+        }
+        button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="logo"><span class="auto">Auto</span>Finity</div>
+    </header>
+
     <div class="login-container">
         <h2>Connexion à AutoFinity</h2>
         <form id="loginForm">
@@ -16,12 +59,16 @@
         </form>
     </div>
 
-    <div class="dashboard" id="dashboard" style="display:none;">
-        <h2>Tableau de bord AutoFinity</h2>
-        <p>Bienvenue, <span id="userDisplay"></span> ! Vous êtes connecté.</p>
-        <button id="logoutBtn">Déconnexion</button>
-    </div>
-
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            if (username.trim() !== "") {
+                alert("Bienvenue, " + username + " !");
+            } else {
+                alert("Veuillez entrer un nom d'utilisateur valide !");
+            }
+        });
+    </script>
 </body>
 </html>
