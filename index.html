@@ -43,6 +43,13 @@
         button:hover {
             background: #0056b3;
         }
+        .dashboard {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f4f4f4;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -59,15 +66,28 @@
         </form>
     </div>
 
+    <div class="dashboard" id="dashboard">
+        <h2>Tableau de bord AutoFinity</h2>
+        <p>Bienvenue, <span id="userDisplay"></span> !</p>
+        <button id="logoutBtn">Déconnexion</button>
+    </div>
+
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
             const username = document.getElementById("username").value;
             if (username.trim() !== "") {
-                alert("Bienvenue, " + username + " !");
+                document.getElementById("userDisplay").textContent = username;
+                document.getElementById("dashboard").style.display = "block";
+                document.querySelector(".login-container").style.display = "none";
             } else {
                 alert("Veuillez entrer un nom d'utilisateur valide !");
             }
+        });
+
+        document.getElementById("logoutBtn").addEventListener("click", function() {
+            document.getElementById("dashboard").style.display = "none";
+            document.querySelector(".login-container").style.display = "block";
         });
     </script>
 </body>
